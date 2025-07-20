@@ -3,7 +3,7 @@ import time
 import requests
 from telegram import Bot
 from apscheduler.schedulers.blocking import BlockingScheduler
-from pytz import timezone
+import pytz
 import datetime
 
 DERIV_APP_ID = os.environ.get("DERIV_APP_ID")
@@ -11,7 +11,7 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN")
 CHAT_ID = os.environ.get("CHAT_ID")
 
 def check_market():
-    tz = timezone('Africa/Nairobi')
+    tz = pytz.timezone('Africa/Nairobi')  
     now = datetime.datetime.now(tz)
     formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
 
